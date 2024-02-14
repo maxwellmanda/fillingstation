@@ -1,11 +1,8 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     Fillingstation.Repo.insert!(%Fillingstation.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+Fillingstation.Accounts.create_users(%{
+  first_name: "Admin 2",
+  last_name: "User",
+  email: "admin@probasegroup.com",
+  password: "P@ssw0rd",
+  status: "A",
+  auto_password: "N"
+})

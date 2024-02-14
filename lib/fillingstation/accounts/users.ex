@@ -19,7 +19,7 @@ defmodule Fillingstation.Accounts.Users do
   @doc false
   def changeset(users, attrs) do
     users
-    |> cast(attrs, [:first_name, :email, :last_login_dt, :last_name, :login_attempt, :password, :password_expiry_dt, :remote_ip, :status])
-    |> validate_required([:first_name, :email, :last_login_dt, :last_name, :login_attempt, :password, :password_expiry_dt, :remote_ip, :status])
+    |> cast(attrs, [:first_name, :email, :last_login_dt, :last_name, :login_attempt, :password, :remote_ip, :status])
+    # |> validate_required([:first_name, :email, :last_login_dt, :last_name, :login_attempt, :password, :remote_ip, :status])
   end
 end
