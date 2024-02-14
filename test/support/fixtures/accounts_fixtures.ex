@@ -25,4 +25,34 @@ defmodule Fillingstation.AccountsFixtures do
 
     users
   end
+
+  @doc """
+  Generate a activity.
+  """
+  def activity_fixture(attrs \\ %{}) do
+    {:ok, activity} =
+      attrs
+      |> Enum.into(%{
+        activity: "some activity"
+      })
+      |> Fillingstation.Accounts.create_activity()
+
+    activity
+  end
+
+  @doc """
+  Generate a user_role.
+  """
+  def user_role_fixture(attrs \\ %{}) do
+    {:ok, user_role} =
+      attrs
+      |> Enum.into(%{
+        role_desc: "some role_desc",
+        role_str: %{},
+        status: "some status"
+      })
+      |> Fillingstation.Accounts.create_user_role()
+
+    user_role
+  end
 end
