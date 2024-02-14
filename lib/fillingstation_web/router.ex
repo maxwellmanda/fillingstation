@@ -14,10 +14,24 @@ defmodule FillingstationWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", FillingstationWeb do
-    pipe_through :browser
 
-    get "/", PageController, :home
+  pipeline :session do
+    plug(:accepts, ["html"])
+    plug(:fetch_session)
+    plug(:fetch_flash)
+    plug(:put_secure_browser_headers)
+  end
+
+  # scope "/", FillingstationWeb do
+  #   pipe_through :browser
+
+  #   get "/", PageController, :home
+  # end
+
+  scope "/", FillingstationWeb do
+    pipe_through([:session])
+    get("/", SessionController, :new)
+    # post("/", SessionController, :create)
   end
 
   # Other scopes may use custom stacks.
